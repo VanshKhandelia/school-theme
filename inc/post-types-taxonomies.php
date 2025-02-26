@@ -248,7 +248,7 @@ function school_register_custom_taxonomies() {
 		'manage_terms'               => 'do_not_allow',
 		'edit_terms'               => 'do_not_allow',
 		'delete_terms'               => 'do_not_allow',
-		'assign_terms'               => 'edit_staff-categories',
+		'assign_terms'               => 'edit_posts',
 	);
 	$args = array(
 		'labels'                     => $labels,
