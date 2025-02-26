@@ -238,12 +238,14 @@ function school_register_custom_taxonomies() {
 		'no_terms'                   => __( 'No staff-catgeories', 'text_domain' ),
 		'items_list'                 => __( 'staff-catgeories list', 'text_domain' ),
 		'items_list_navigation'      => __( 'staff-catgeory list navigation', 'text_domain' ),
-		'item_link_description'      => __( 'A link to a staff-category.', 'mindset-theme' ),
 	);
 	$rewrite = array(
 		'slug'                       => 'staff-catgeory',
 		'with_front'                 => true,
 		'hierarchical'               => false,
+	);
+	$capabilities = array(
+		'assign_terms'               => 'edit_staff-categories',
 	);
 	$args = array(
 		'labels'                     => $labels,
@@ -254,8 +256,10 @@ function school_register_custom_taxonomies() {
 		'show_in_nav_menus'          => true,
 		'show_tagcloud'              => true,
 		'rewrite'                    => $rewrite,
+		'capabilities'               => $capabilities,
 		'show_in_rest'               => true,
 	);
+
 	register_taxonomy( 'school-staff-category', array( 'school_staff' ), $args );
 }
 
