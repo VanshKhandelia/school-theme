@@ -144,7 +144,8 @@ function school_register_custom_post_types() {
                 )
             ),
         ),
-        'template_lock' => 'all', 
+        'template_lock' => 'all',
+		// 'publicly_queryable'    => false,
     );
 	register_post_type( 'school_staff', $args );
 
