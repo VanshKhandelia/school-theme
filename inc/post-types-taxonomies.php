@@ -245,6 +245,9 @@ function school_register_custom_taxonomies() {
 		'hierarchical'               => false,
 	);
 	$capabilities = array(
+		'manage_terms'               => 'do_not_allow',
+		'edit_terms'               => 'do_not_allow',
+		'delete_terms'               => 'do_not_allow',
 		'assign_terms'               => 'edit_staff-categories',
 	);
 	$args = array(
