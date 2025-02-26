@@ -158,13 +158,11 @@ function custom_student_title_placeholder($placeholder, $post) {
     if ($post->post_type === 'school_students') {
         return 'Add student name';
     }
-    if($post->post_type === 'schoo_staff') {
+    if($post->post_type === 'school_staff') {
         return "Add staff name";
     }
     return $placeholder;
 }
-
-
 
 function school_rewrite_flush() {
     school_register_custom_post_types();
