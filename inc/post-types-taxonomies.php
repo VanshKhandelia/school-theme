@@ -169,3 +169,15 @@ function school_rewrite_flush() {
     flush_rewrite_rules();
 }
 add_action( 'after_switch_theme', 'school_rewrite_flush' );
+
+
+function school_register_custom_taxonomies() {
+
+	//adding student-roles custom taxonomies
+
+	//adding staff-category custom taxonomy
+	
+}
+
+add_action ('init' , 'school_register_custom_taxonomies');
+
