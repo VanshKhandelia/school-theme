@@ -114,7 +114,7 @@ function school_register_custom_post_types() {
 		'description'           => __( 'A custom post for staff', 'text_domain' ),
 		'labels'                => $labels,
 		'supports'              => array( 'title', 'editor', 'thumbnail' ),
-		'taxonomies'            => array(),
+		'taxonomies'            => array('school-staff-category'),
 		'hierarchical'          => false,
 		'public'                => true,
 		'show_ui'               => true,
@@ -176,7 +176,47 @@ function school_register_custom_taxonomies() {
 	//adding student-roles custom taxonomies
 
 	//adding staff-category custom taxonomy
-	
+
+	$labels = array(
+		'name'                       => _x( 'staffcategories', 'Taxonomy General Name', 'text_domain' ),
+		'singular_name'              => _x( 'staffcategory', 'Taxonomy Singular Name', 'text_domain' ),
+		'menu_name'                  => __( 'staff-category', 'text_domain' ),
+		'all_items'                  => __( 'All staff-categories', 'text_domain' ),
+		'parent_item'                => __( 'Parent staff-catgeories', 'text_domain' ),
+		'parent_item_colon'          => __( 'Parent staff-catgeories:', 'text_domain' ),
+		'new_item_name'              => __( 'New staff-catgeory Name', 'text_domain' ),
+		'add_new_item'               => __( 'Add New staff-catgeory', 'text_domain' ),
+		'edit_item'                  => __( 'Edit staff-catgeory', 'text_domain' ),
+		'update_item'                => __( 'Update staff-catgeory', 'text_domain' ),
+		'view_item'                  => __( 'View staff-catgeory', 'text_domain' ),
+		'separate_items_with_commas' => __( 'Separate staff-catgeory with commas', 'text_domain' ),
+		'add_or_remove_items'        => __( 'Add or remove staff-catgeory', 'text_domain' ),
+		'choose_from_most_used'      => __( 'Choose from the most used', 'text_domain' ),
+		'popular_items'              => __( 'Popular staff-catgeories', 'text_domain' ),
+		'search_items'               => __( 'Search staff-catgeory', 'text_domain' ),
+		'not_found'                  => __( 'Not Found', 'text_domain' ),
+		'no_terms'                   => __( 'No staff-catgeories', 'text_domain' ),
+		'items_list'                 => __( 'staff-catgeories list', 'text_domain' ),
+		'items_list_navigation'      => __( 'staff-catgeory list navigation', 'text_domain' ),
+		'item_link_description'      => __( 'A link to a staff-category.', 'mindset-theme' ),
+	);
+	$rewrite = array(
+		'slug'                       => 'staff-catgeory',
+		'with_front'                 => true,
+		'hierarchical'               => false,
+	);
+	$args = array(
+		'labels'                     => $labels,
+		'hierarchical'               => false,
+		'public'                     => true,
+		'show_ui'                    => true,
+		'show_admin_column'          => true,
+		'show_in_nav_menus'          => true,
+		'show_tagcloud'              => true,
+		'rewrite'                    => $rewrite,
+		'show_in_rest'               => true,
+	);
+	register_taxonomy( 'school-staff-category', array( 'school_staff' ), $args );
 }
 
 add_action ('init' , 'school_register_custom_taxonomies');
