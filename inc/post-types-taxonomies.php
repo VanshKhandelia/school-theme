@@ -150,6 +150,22 @@ function school_register_custom_post_types() {
 
 }
 add_action( 'init', 'school_register_custom_post_types' );
+
+
+add_filter('enter_title_here', 'custom_student_title_placeholder', 10, 2);
+
+function custom_student_title_placeholder($placeholder, $post) {
+    if ($post->post_type === 'student') {
+        return 'Add student name';
+    }
+    if($post->post_type === 'staff') {
+        return "Add staff name";
+    }
+    return $placeholder;
+}
+
+
+
 function school_rewrite_flush() {
     school_register_custom_post_types();
     flush_rewrite_rules();
