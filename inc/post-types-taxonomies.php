@@ -155,10 +155,10 @@ add_action( 'init', 'school_register_custom_post_types' );
 add_filter('enter_title_here', 'custom_student_title_placeholder', 10, 2);
 
 function custom_student_title_placeholder($placeholder, $post) {
-    if ($post->post_type === 'student') {
+    if ($post->post_type === 'school_students') {
         return 'Add student name';
     }
-    if($post->post_type === 'staff') {
+    if($post->post_type === 'schoo_staff') {
         return "Add staff name";
     }
     return $placeholder;
