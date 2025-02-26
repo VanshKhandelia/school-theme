@@ -41,7 +41,7 @@ function school_register_custom_post_types() {
 		'description'           => __( 'students', 'text_domain' ),
 		'labels'                => $labels,
 		'supports'              => array( 'title', 'editor', 'thumbnail' ),
-		'taxonomies'            => array(),
+		'taxonomies'            => array('school-student-role'),
 		'hierarchical'          => false,
 		'public'                => true,
 		'show_ui'               => true,
@@ -174,6 +174,46 @@ add_action( 'after_switch_theme', 'school_rewrite_flush' );
 function school_register_custom_taxonomies() {
 
 	//adding student-roles custom taxonomies
+	$labels = array(
+		'name'                       => _x( 'student-roles', 'Taxonomy General Name', 'text_domain' ),
+		'singular_name'              => _x( 'student-role', 'Taxonomy Singular Name', 'text_domain' ),
+		'menu_name'                  => __( 'student-role', 'text_domain' ),
+		'all_items'                  => __( 'all student-roles', 'text_domain' ),
+		'parent_item'                => __( 'Parent student-role', 'text_domain' ),
+		'parent_item_colon'          => __( 'Parent student-role:', 'text_domain' ),
+		'new_item_name'              => __( 'New student-role', 'text_domain' ),
+		'add_new_item'               => __( 'Add New student-role', 'text_domain' ),
+		'edit_item'                  => __( 'Edit student-role', 'text_domain' ),
+		'update_item'                => __( 'Update student-role', 'text_domain' ),
+		'view_item'                  => __( 'View student-role', 'text_domain' ),
+		'separate_items_with_commas' => __( 'Separate student-role with commas', 'text_domain' ),
+		'add_or_remove_items'        => __( 'Add or remove student-role', 'text_domain' ),
+		'choose_from_most_used'      => __( 'Choose from the most used', 'text_domain' ),
+		'popular_items'              => __( 'Popular student-roles', 'text_domain' ),
+		'search_items'               => __( 'Search student-roles', 'text_domain' ),
+		'not_found'                  => __( 'Not Found', 'text_domain' ),
+		'no_terms'                   => __( 'No student-roles', 'text_domain' ),
+		'items_list'                 => __( 'student-roles list', 'text_domain' ),
+		'items_list_navigation'      => __( 'student-roles list navigation', 'text_domain' ),
+		'item_link_description'      => __( 'A link to student roles', 'school-theme' )
+	);
+	$rewrite = array(
+		'slug'                       => 'student-role-taxonomy',
+		'with_front'                 => true,
+		'hierarchical'               => false,
+	);
+	$args = array(
+		'labels'                     => $labels,
+		'hierarchical'               => false,
+		'public'                     => true,
+		'show_ui'                    => true,
+		'show_admin_column'          => true,
+		'show_in_nav_menus'          => true,
+		'show_tagcloud'              => true,
+		'rewrite'                    => $rewrite,
+		'show_in_rest'               => true,
+	);
+	register_taxonomy( 'school-student-role', array( 'school_students' ), $args );
 
 	//adding staff-category custom taxonomy
 	
