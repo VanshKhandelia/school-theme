@@ -21,15 +21,18 @@ function school_enqueues() {
 		array(), 
 		'12.1.0'
 	);
+
 	wp_enqueue_script(
 		'aos-script',
-		get_theme_file_uri( 'assets/js/aos.js'),
+		get_theme_file_uri( 'assets/js/aos.js' ),
 		array(),
 		wp_get_theme()->get( 'Version' ),
-		array('strategy' => 'defer')
+		true
 	);
-}
-add_action( 'wp_enqueue_scripts', 'school_enqueues' );
+	
+	wp_add_inline_script( 'aos-script', 'AOS.init();' );
+	}
+	add_action( 'wp_enqueue_scripts', 'school_enqueues' );
 
 function school_setup() {
 	add_editor_style( get_stylesheet_uri() );
