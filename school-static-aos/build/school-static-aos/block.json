@@ -1,0 +1,19 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "school-blocks/school-static-aos",
+  "version": "1.0.0",
+  "title": "Static-aos",
+  "category": "embed",
+  "icon": "arrow-right",
+  "description": "Adds animation",
+  "example": {},
+  "supports": {
+    "html": false
+  },
+  "textdomain": "school-static-aos",
+  "editorScript": "file:./index.js",
+  "editorStyle": "file:./index.css",
+  "style": "file:./style-index.css",
+  "viewScript": "file:./view.js"
+}
