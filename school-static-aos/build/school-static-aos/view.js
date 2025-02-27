@@ -1,1 +1,0 @@
-console.log("Hello World! (from school-blocks-school-static-aos block)");

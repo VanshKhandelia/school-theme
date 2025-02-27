@@ -48,6 +48,7 @@ function school_add_custom_image_sizes( $size_names ) {
 }
 add_filter( 'image_size_names_choose', 'school_add_custom_image_sizes' );
 
+require get_theme_file_path() .'/school-static-aos/school-static-aos.php';
 
 require get_template_directory() . '/inc/post-types-taxonomies.php';
 ?>

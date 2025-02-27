@@ -19,7 +19,6 @@ import { useBlockProps } from '@wordpress/block-editor';
  *
  * @see https://www.npmjs.com/package/@wordpress/scripts#using-css
  */
-import './editor.scss';
 
 /**
  * The edit function describes the structure of your block in the context of the
@@ -29,10 +28,31 @@ import './editor.scss';
  *
  * @return {Element} Element to render.
  */
-export default function Edit() {
+import {PanelBody, SelectControl} from '@wordpress/components';
+import {InnerBlocks, InspectorControls} from '@wordpress/block-editor';
+
+const AOS_OPTIONS = [
+    { label: 'Fade Up', value: 'fade-up' },
+    { label: 'Fade Down', value: 'fade-down' },
+    { label: 'Fade Left', value: 'fade-left' },
+    { label: 'Fade Right', value: 'fade-right' }
+];
+export default function Edit({ attributes, setAttributes }) {
 	return (
-		<p { ...useBlockProps() }>
-			{ __( 'Static-aos – hello from the editor!', 'school-static-aos' ) }
-		</p>
+		<>
+		<InspectorControls>
+			<PanelBody title={__('Static AOS Settings' , 'school-static-aos')}>
+				<SelectControl
+					label={__('AOS Animation', 'school-static-aos')}
+					value={attributes.animation}
+					options={AOS_OPTIONS}
+					onChange={(value) => setAttributes({ animation: value })}
+				/>
+			</PanelBody>
+		</InspectorControls>
+		<div { ...useBlockProps()} data-aos={attributes.animation}>
+			<InnerBlocks />
+		</div>		
+		</>
 	);
 }
