@@ -1,4 +1,35 @@
 <?php
+function school_enqueues() {
+	// Loading style.css on the front-end
+	// Parameters: Unique handle, Source, Dependencies, Version number, Media
+	wp_enqueue_style( 
+		'school-style',
+		get_stylesheet_uri(),
+		array(),
+		wp_get_theme()->get( 'Version' ),
+		'all'
+	);
+	wp_enqueue_style( 
+		'school-normalize', 
+		get_theme_file_uri( 'assets/css/normalize-fwd.css'), 
+		array(), 
+		'12.1.0'
+	);
+	wp_enqueue_style( 
+		'aos-stylesheet', 
+		get_theme_file_uri( 'assets/css/aos.css'), 
+		array(), 
+		'12.1.0'
+	);
+	wp_enqueue_script(
+		'aos-script',
+		get_theme_file_uri( 'assets/js/aos.js'),
+		array(),
+		wp_get_theme()->get( 'Version' ),
+		array('strategy' => 'defer')
+	);
+}
+add_action( 'wp_enqueue_scripts', 'school_enqueues' );
 
 function school_setup() {
 	add_editor_style( get_stylesheet_uri() );
