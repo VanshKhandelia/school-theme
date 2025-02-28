@@ -26,6 +26,7 @@ Tags:
 
     footer .is-layout-flex{
         flex-direction: column;
+        align-items: center;
     }
     body .wp-block-query.is-layout-flow.wp-block-query-is-layout-flow ul {
         padding: 1rem;
