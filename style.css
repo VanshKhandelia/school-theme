@@ -14,3 +14,32 @@ Text Domain: school-theme
 Tags: 
 */
 
+
+@media (max-width: 600px) {
+    body .is-layout-grid {
+        grid-template-columns: 1fr;
+    }
+
+    body .is-layout-flex{
+        flex-wrap: wrap;
+    }
+
+    footer .is-layout-flex{
+        flex-direction: column;
+    }
+    body .wp-block-query.is-layout-flow.wp-block-query-is-layout-flow ul {
+        padding: 1rem;
+    }
+    body p{
+        padding:1rem auto;
+    }
+
+    body.page-id-16 .wp-block-group p{
+        padding: 0 1rem;
+    }
+
+    body.page-id-16 .wp-block-gallery.has-nested-images{
+        gap: 0.5rem;
+        padding: 1rem;
+    }
+}

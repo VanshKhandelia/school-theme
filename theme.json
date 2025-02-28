@@ -15,7 +15,7 @@
 					"slug": "contrast"
 				},
 				{
-					"color": "#ffffff",
+					"color": "#003c71",
 					"name": "Primary",
 					"slug": "primary"
 				},
@@ -133,11 +133,27 @@
 					"radius": "0px"
 				}
 			},
+			"core/group": {
+				"spacing": {
+					"padding": {
+						"left": "var(--wp--preset--spacing--30)",
+						"right": "var(--wp--preset--spacing--30)"
+					}
+				}
+			},
 			"core/heading": {
 				"spacing": {
 					"margin": {
 						"bottom": "0.25em",
 						"top": "0.75em"
+					}
+				}
+			},
+			"core/paragraph": {
+				"spacing": {
+					"padding": {
+						"left": "0",
+						"right": "0"
 					}
 				}
 			}
